@@ -68,6 +68,13 @@ const showWinner = (winner) => {
     disableBoxes();
 };
 
+const showDraw = () => {
+    msg.innerText = `Oops, the game ended in a draw! `;
+    msgContainer.classList.remove("hide");
+    disableBoxes();
+
+};
+
 const checkWinner = () => {
     for (let pattern of winPatterns) {
         let pos1 = boxes[pattern[0]].innerText;
@@ -77,8 +84,10 @@ const checkWinner = () => {
         if (pos1 != "", pos2 != "", pos3 != "") {
             if (pos1 === pos2 && pos2 === pos3) {                
                 showWinner(pos1);
-            }
-        }
+            } //else if (pos1 != "", pos2 != "", pos3 != "") {
+                // showDraw();
+                //}
+        } 
     }
 };
 
