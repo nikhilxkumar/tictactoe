@@ -3,6 +3,7 @@ let resetBtn = document.querySelector("#reset-btn");
 let newGameBtn = document.querySelector("#new-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
+let turnMessage = document.querySelector(".turn");
 
 let turn0 = false;//player X or O
 
@@ -21,6 +22,8 @@ const resetGame = () => {
     turn0 = false;
     enableBoxes();
     msgContainer.classList.add("hide");
+    turnMessage.innerText = `Player 1's turn`;
+
 }
 
 
@@ -32,14 +35,17 @@ boxes.forEach((box) => {
         if (turn0 === true) { //Player O is playing
             box.innerText = "O";
             turn0 = false;
+            turnMessage.innerText = `Player 1's turn`;
+            
         } else { //Player O is playing
             box.innerText = "X";
             turn0 = true
+            turnMessage.innerText = `Player 2's turn`;
         }
         box.disabled = true;
-        
         checkWinner();
     })
+    // turnMessage.innerText = `Current player's turn: X`;
 })
 
 
